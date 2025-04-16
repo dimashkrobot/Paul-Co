@@ -558,6 +558,15 @@ h6 {
   padding-top: 3.75rem;
   padding-bottom: 3.75rem
 }
+.rent-cabinet__title {
+  font-size: 2.5rem;
+  line-height: 1.28125;
+  color: #28348a;
+  font-family: "Sofia Pro";
+  font-weight: 700;
+  margin-bottom: 3.125rem;
+  text-align: center
+}
 .rent-cabinet__slider {
   margin: -.9375rem -.625rem
 }
