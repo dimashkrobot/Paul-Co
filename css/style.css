@@ -1,5 +1,5 @@
 @font-face {
-  font-family: Hero New Bold;
+  font-family: Hero New;
   font-display: swap;
   src: url("../fonts/Hero New Bold.woff2") format("woff2");
   font-weight: 700;
@@ -127,6 +127,33 @@ h6 {
   min-width: 0;
   grid-column: 3/4
 }
+.menu__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  -webkit-column-gap: 1.25rem;
+  -moz-column-gap: 1.25rem;
+  column-gap: 1.25rem;
+  row-gap: .625rem
+}
+.menu__link {
+  color: #28348a;
+  font-weight: 700;
+  font-family: "Sofia Pro";
+  letter-spacing: .0625rem;
+  text-transform: uppercase;
+  transition: all .3s ease
+}
+.menu__toggle-text {
+  font-size: .875rem;
+  font-family: "Sofia Pro";
+  margin-bottom: .3125rem;
+  font-weight: 700;
+  letter-spacing: .0625rem;
+  line-height: 1.2857142857;
+  color: #ed1b2f;
+  text-transform: uppercase
+}
 .icon-menu {
   display: none
 }
@@ -163,42 +190,18 @@ h6 {
   -moz-column-gap: 1.25rem;
   column-gap: 1.25rem;
   align-items: center;
-  min-height: 6.25rem;
   padding-top: .5rem;
   padding-bottom: .5rem
 }
 .header__logo {
+  position: relative;
+  z-index: 5;
   font-family: "Hero New";
   font-weight: 700;
-  font-size: 2.625rem;
   color: #28348a
 }
 .header__logo img {
   max-width: 8.75rem
-}
-.header__menu {
-  border-top: 1px solid #d4d3d5;
-  border-bottom: 1px solid #d4d3d5
-}
-.menu__list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  -webkit-column-gap: 1.25rem;
-  -moz-column-gap: 1.25rem;
-  column-gap: 1.25rem;
-  row-gap: .625rem
-}
-.menu__item {
-  padding: 1.25rem .625rem
-}
-.menu__link {
-  color: #28348a;
-  font-weight: 700;
-  font-family: "Sofia Pro";
-  letter-spacing: .0625rem;
-  text-transform: uppercase;
-  transition: all .3s ease
 }
 .action-header {
   display: flex;
@@ -208,6 +211,8 @@ h6 {
   column-gap: 3.125rem
 }
 .action-header__call {
+  position: relative;
+  z-index: 4;
   transition: all .4s ease-in-out;
   display: flex
 }
@@ -215,8 +220,8 @@ h6 {
   display: flex;
   gap: .625rem;
   background-color: #28348a;
-  padding: .75rem 1.25rem;
-  height: 4.125rem;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
   border-radius: .25rem 0 0 .25rem
 }
 .action-header__logo span {
@@ -229,27 +234,28 @@ h6 {
   color: #fff
 }
 .action-header__logo svg {
-  max-width: 2.375rem;
-  fill: #fff
+  fill: #fff;
+  flex-grow: 0;
+  flex-shrink: 0
 }
 .action-header__logo img {
   display: block
 }
 .action-header__phone {
-  font-size: 2rem;
+  display: flex;
+  align-items: center;
   line-height: 1.3;
   font-weight: 700;
   letter-spacing: .0625rem;
   font-family: "Sofia Pro";
   background-color: #ed1b2f;
-  padding: .75rem 1.25rem;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
   border-radius: 0 .25rem .25rem 0;
   color: #fff;
   text-wrap: nowrap
 }
 .footer {
-  padding-bottom: 8.125rem;
-  padding-top: 5rem;
   background-color: #f5f5f5
 }
 .footer__container {
@@ -257,15 +263,11 @@ h6 {
   padding-top: 2.5rem
 }
 .footer__copyright {
-  font-size: 1rem;
   line-height: 1.8;
   color: #617798
 }
 .plumbing-repair {
-  position: relative;
-  padding-top: 5.625rem;
-  padding-bottom: 7.5rem;
-  background: linear-gradient(to right,#28348a 0,#28348a 50%,transparent 50%,transparent 100%)
+  position: relative
 }
 .plumbing-repair__container {
   display: flex
@@ -284,6 +286,7 @@ h6 {
   font-size: 2.25rem;
   line-height: 1.1388888889;
   font-weight: 700;
+  font-family: "Sofia Pro";
   padding-bottom: 1.25rem;
   margin-bottom: 2.1875rem
 }
@@ -300,7 +303,8 @@ h6 {
 .plumbing-repair__text {
   font-size: 1.125rem;
   line-height: 1.5555555556;
-  color: #fff
+  color: #fff;
+  font-family: "Hero New"
 }
 .plumbing-repair__text:not(:last-child) {
   margin-bottom: 2.1875rem
@@ -314,10 +318,6 @@ h6 {
   top: 0;
   left: 49.5%;
   background-size: cover
-}
-.plumbing-experts {
-  padding-top: 7.5rem;
-  padding-bottom: 3.75rem
 }
 .plumbing-experts__container {
   display: flex;
@@ -342,8 +342,8 @@ h6 {
   width: 50%
 }
 .plumbing-experts__wrapper {
-  padding-left: 6.25rem;
-  padding-right: 1.25rem
+  padding-left: .9375rem;
+  padding-right: .9375rem
 }
 .plumbing-experts__title {
   position: relative;
@@ -362,7 +362,7 @@ h6 {
   bottom: -3px;
   height: 1px;
   width: 100%;
-  max-width: 100px;
+  max-width: 6.25rem;
   border-bottom: 5px solid #ed1b2f
 }
 .plumbing-experts__text {
@@ -397,10 +397,6 @@ h6 {
   width: .9375rem;
   height: .0625rem
 }
-.repair-services {
-  padding-top: 3.75rem;
-  padding-bottom: 3.75rem
-}
 .repair-services__container {
   display: flex;
   flex-wrap: wrap
@@ -424,8 +420,8 @@ h6 {
   width: 50%
 }
 .repair-services__wrapper {
-  padding-right: 6.25rem;
-  padding-left: 1.25rem
+  padding-right: .9375rem;
+  padding-left: .9375rem
 }
 .repair-services__title {
   position: relative;
@@ -479,10 +475,6 @@ h6 {
   width: .9375rem;
   height: .0625rem
 }
-.company-benefits {
-  padding-top: 3.75rem;
-  padding-bottom: 3.75rem
-}
 .company-benefits__container {
   display: flex;
   flex-wrap: wrap
@@ -506,8 +498,8 @@ h6 {
   width: 50%
 }
 .company-benefits__wrapper {
-  padding-left: 6.25rem;
-  padding-right: 1.25rem
+  padding-left: .9375rem;
+  padding-right: .9375rem
 }
 .company-benefits__title {
   position: relative;
@@ -554,17 +546,11 @@ h6 {
   font-family: "Sofia Pro";
   color: #28348a
 }
-.rent-cabinet {
-  padding-top: 3.75rem;
-  padding-bottom: 3.75rem
-}
 .rent-cabinet__title {
-  font-size: 2.5rem;
   line-height: 1.28125;
   color: #28348a;
   font-family: "Sofia Pro";
   font-weight: 700;
-  margin-bottom: 3.125rem;
   text-align: center
 }
 .rent-cabinet__slider {
@@ -809,7 +795,38 @@ h6 {
 .swiper-button-lock {
   display: none!important
 }
+@media (min-width:47.99875em) {
+  .action-header__logo {
+    height: 4.125rem
+  }
+  .action-header__logo svg {
+    flex-basis: 2.375rem
+  }
+  .action-header__logo svg {
+    width: 2.375rem
+  }
+}
 @media (min-width:61.99875em) {
+  .menu__item {
+    padding-left: .625rem;
+    padding-right: .625rem
+  }
+  .menu__toggle-text {
+    display: none
+  }
+  .header__information {
+    min-height: 6.25rem
+  }
+  .header__logo {
+    font-size: 2.625rem
+  }
+  .header__menu {
+    border-top: 1px solid #d4d3d5;
+    border-bottom: 1px solid #d4d3d5
+  }
+  .plumbing-repair {
+    background: linear-gradient(to right,#28348a 0,#28348a 50%,transparent 50%,transparent 100%)
+  }
   .rent-cabinet__wrapper {
     flex-wrap: wrap
   }
@@ -818,6 +835,81 @@ h6 {
   }
 }
 @media (min-width:73.125em) {
+  .menu__item {
+    padding-top: 1.25rem
+  }
+  .menu__item {
+    padding-bottom: 1.25rem
+  }
+  .action-header__logo {
+    padding-left: 1.25rem
+  }
+  .action-header__logo {
+    padding-right: 1.25rem
+  }
+  .action-header__phone {
+    font-size: 2rem
+  }
+  .action-header__phone {
+    padding-left: 1.25rem
+  }
+  .action-header__phone {
+    padding-right: 1.25rem
+  }
+  .footer {
+    padding-top: 5rem
+  }
+  .footer {
+    padding-bottom: 8.125rem
+  }
+  .footer__copyright {
+    font-size: 1.125rem
+  }
+  .plumbing-repair {
+    padding-top: 5.625rem
+  }
+  .plumbing-repair {
+    padding-bottom: 7.5rem
+  }
+  .plumbing-experts {
+    padding-top: 5.625rem
+  }
+  .plumbing-experts {
+    padding-bottom: 3.75rem
+  }
+  .plumbing-experts__wrapper {
+    padding-left: 6.25rem
+  }
+  .repair-services {
+    padding-top: 3.75rem
+  }
+  .repair-services {
+    padding-bottom: 3.75rem
+  }
+  .repair-services__wrapper {
+    padding-right: 6.25rem
+  }
+  .company-benefits {
+    padding-top: 3.75rem
+  }
+  .company-benefits {
+    padding-bottom: 3.75rem
+  }
+  .company-benefits__wrapper {
+    padding-left: 6.25rem
+  }
+  .rent-cabinet {
+    padding-top: 3.75rem
+  }
+  .rent-cabinet {
+    padding-bottom: 3.75rem
+  }
+  .rent-cabinet__title {
+    font-size: 2.5rem
+  }
+  .rent-cabinet__title {
+    margin-bottom: 3.125rem
+  }
   .slider-card__button {
     font-size: .875rem
   }
@@ -825,7 +917,32 @@ h6 {
     padding: .5rem
   }
 }
+@media (max-width:35em) {
+  .plumbing-experts__text ul {
+    padding-top: 0;
+    padding-left: 1.875rem
+  }
+  .plumbing-experts__text ul:not(:last-child) {
+    margin-bottom: 1.875rem
+  }
+  .repair-services__text ul {
+    padding-top: 0;
+    padding-left: 1.875rem
+  }
+  .repair-services__text ul:not(:last-child) {
+    margin-bottom: 1.875rem
+  }
+}
 @media (max-width:20em) {
+  .footer__copyright {
+    font-size: .875rem
+  }
+  .rent-cabinet__title {
+    font-size: 2rem
+  }
+  .rent-cabinet__title {
+    margin-bottom: 1.25rem
+  }
   .slider-card__button {
     font-size: .6875rem
   }
@@ -834,34 +951,30 @@ h6 {
   }
 }
 @media (max-width:61.99875em) {
-  .rent-cabinet {
-    padding-top: 2rem;
-    padding-bottom: 3rem
-  }
-  .rent-cabinet__slide {
-    width: 50%
-  }
-}
-@media (max-width:47.99875em) {
   .menu__body {
     position: fixed;
+    display: flex;
+    z-index: 4;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     left: -100%;
     top: 0;
     overflow: auto;
-    padding: 3.125rem .9375rem 1.875rem .9375rem;
-    transition: left .3s
+    padding: 8.125rem 1.25rem 3.75rem 1.25rem;
+    transition: left .5s ease 0s;
+    background-color: #fff
   }
   .menu__body::before {
     content: "";
     position: fixed;
     width: 100%;
-    height: 4.375rem;
     left: -100%;
     top: 0;
-    transition: left .3s;
-    z-index: 2
+    transition: left .5s ease 0s;
+    z-index: 4;
+    background-color: #fff;
+    border-bottom: .0625rem solid #d4d3d5
   }
   .menu-open .menu__body {
     left: 0
@@ -869,11 +982,45 @@ h6 {
   .menu-open .menu__body::before {
     left: 0
   }
+  .menu__list {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 1.5625rem
+  }
+  .menu__item {
+    position: relative;
+    left: -100%;
+    transition: all 0s ease .2s
+  }
+  .menu-open .menu__item {
+    left: 0;
+    transition: all .4s ease
+  }
+  .menu-open .menu__item:nth-child(1) {
+    transition-delay: .1s
+  }
+  .menu-open .menu__item:nth-child(2) {
+    transition-delay: .2s
+  }
+  .menu-open .menu__item:nth-child(3) {
+    transition-delay: .3s
+  }
+  .menu-open .menu__item:nth-child(4) {
+    transition-delay: .4s
+  }
+  .menu-open .menu__item:nth-child(5) {
+    transition-delay: .5s
+  }
+  .menu__link {
+    font-size: 1.5625rem;
+    line-height: 1.5
+  }
   .icon-menu {
     display: block;
     position: relative;
-    width: 1.875rem;
-    height: 1.125rem;
+    width: 2.6875rem;
+    height: 1.4375rem;
+    flex: 0 0 2.6875rem;
     z-index: 5
   }
   .icon-menu span,
@@ -909,6 +1056,217 @@ h6 {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg)
   }
+  .header__logo {
+    flex: 1 1 auto
+  }
+  .header__menu {
+    padding-top: .5625rem;
+    padding-bottom: .8125rem
+  }
+  .action-header__logo {
+    padding-left: .875rem
+  }
+  .action-header__logo {
+    padding-right: .875rem
+  }
+  .action-header__phone {
+    padding-left: .875rem
+  }
+  .action-header__phone {
+    padding-right: .875rem
+  }
+  .footer {
+    padding-top: 3.75rem
+  }
+  .plumbing-repair__content {
+    width: 100%
+  }
+  .plumbing-repair__title {
+    font-size: 2rem;
+    padding-bottom: .9375rem
+  }
+  .plumbing-repair__title::after {
+    max-width: 5rem;
+    border-bottom-width: .25rem
+  }
+  .plumbing-repair__text {
+    font-size: 1rem
+  }
+  .plumbing-repair__image {
+    left: 0;
+    width: 100%
+  }
+  .plumbing-repair__image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(329deg,rgba(40,52,138,.2) 0,#28348a 100%)
+  }
+  .plumbing-experts {
+    margin-left: -.9375rem;
+    margin-right: -.9375rem
+  }
+  .plumbing-experts__media {
+    border-bottom: .5rem solid #ed1b2f
+  }
+  .plumbing-experts__title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5625rem;
+    padding-bottom: .9375rem
+  }
+  .plumbing-experts__title::after {
+    max-width: 5rem;
+    border-bottom-width: .25rem
+  }
+  .plumbing-experts__text p:not(:last-child) {
+    margin-bottom: 1.5625rem
+  }
+  .repair-services {
+    margin-left: -.9375rem;
+    margin-right: -.9375rem
+  }
+  .repair-services__media {
+    border-bottom: .5rem solid #ed1b2f
+  }
+  .repair-services__title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5625rem;
+    padding-bottom: .9375rem
+  }
+  .repair-services__title::after {
+    max-width: 5rem;
+    border-bottom-width: .25rem
+  }
+  .repair-services__text p:not(:last-child) {
+    margin-bottom: 1.5625rem
+  }
+  .company-benefits {
+    margin-left: -.9375rem;
+    margin-right: -.9375rem
+  }
+  .company-benefits__media {
+    border-bottom: .5rem solid #ed1b2f
+  }
+  .company-benefits__title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5625rem;
+    padding-bottom: .9375rem
+  }
+  .company-benefits__title::after {
+    max-width: 5rem;
+    border-bottom-width: .25rem
+  }
+  .company-benefits__text p {
+    margin-bottom: 1.5625rem
+  }
+  .company-benefits__icon svg {
+    width: 3.125rem
+  }
+  .company-benefits__subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 1.5625rem
+  }
+  .rent-cabinet {
+    padding-top: 2rem;
+    padding-bottom: 3rem
+  }
+  .rent-cabinet__slide {
+    width: 50%
+  }
+}
+@media (max-width:61.99875em)and (max-width:47.99875em) {
+  .menu__body::before {
+    height: 5.25rem
+  }
+}
+@media (max-width:61.99875em)and (any-hover:none) {
+  .icon-menu {
+    cursor: default
+  }
+}
+@media (max-width:47.99875em) {
+  .header__information {
+    min-height: 5.25rem
+  }
+  .header__logo {
+    font-size: 2rem
+  }
+  .action-header__logo span {
+    display: none
+  }
+  .footer {
+    padding-bottom: 6.25rem
+  }
+  .plumbing-repair {
+    padding-top: 3.75rem
+  }
+  .plumbing-repair {
+    padding-bottom: 5rem
+  }
+  .plumbing-experts {
+    padding-top: 3.75rem
+  }
+  .plumbing-experts {
+    padding-bottom: 1.875rem
+  }
+  .plumbing-experts__media {
+    width: 100%;
+    max-height: 18.75rem;
+    border-bottom: .375rem solid #ed1b2f;
+    order: 2
+  }
+  .plumbing-experts__body {
+    width: 100%;
+    order: 1
+  }
+  .plumbing-experts__wrapper {
+    padding-bottom: 2.5rem
+  }
+  .repair-services {
+    padding-top: 1.875rem
+  }
+  .repair-services {
+    padding-bottom: 1.875rem
+  }
+  .repair-services__media {
+    width: 100%;
+    max-height: 18.75rem;
+    border-bottom: .375rem solid #ed1b2f
+  }
+  .repair-services__body {
+    width: 100%
+  }
+  .repair-services__wrapper {
+    padding-bottom: 2.5rem
+  }
+  .company-benefits {
+    padding-top: 1.875rem
+  }
+  .company-benefits {
+    padding-bottom: 1.875rem
+  }
+  .company-benefits__media {
+    width: 100%;
+    max-height: 18.75rem;
+    border-bottom: .375rem solid #ed1b2f;
+    order: 2
+  }
+  .company-benefits__body {
+    width: 100%;
+    order: 1
+  }
+  .company-benefits__wrapper {
+    padding-bottom: 2.5rem
+  }
+  .rent-cabinet {
+    padding-top: 1.875rem
+  }
+  .rent-cabinet {
+    padding-bottom: 1.875rem
+  }
   .rent-cabinet__slider {
     margin: -.9375rem -.25rem
   }
@@ -921,17 +1279,150 @@ h6 {
     overflow: visible
   }
 }
-@media (max-width:47.99875em)and (any-hover:none) {
-  .icon-menu {
-    cursor: default
-  }
-}
 @media (max-width:29.99875em) {
+  .menu__list:not(:last-child) {
+    margin-bottom: 1.5625rem
+  }
+  .header__action {
+    position: relative;
+    left: -100%;
+    transition: all 0s ease .2s
+  }
+  .menu-open .header__action {
+    left: 0;
+    transition: all .4s ease .6s
+  }
+  .action-header__logo svg {
+    flex-basis: 1.625rem
+  }
+  .action-header__logo svg {
+    width: 1.625rem
+  }
+  .action-header__phone {
+    font-size: 1.25rem
+  }
   .slider-card__button {
     line-height: 1.4
   }
 }
+@media (max-width:61.99875em)and (min-width:47.99875em)and (max-width:61.99875em) {
+  .menu__body::before {
+    height: clamp(5.25rem ,1.8215178571rem + 7.1428571429vw ,6.25rem)
+  }
+}
+@media (min-width:61.99875em)and (max-width:73.125em) {
+  .menu__item {
+    padding-top: clamp(1rem ,-.3930738119rem + 2.2469385462vw ,1.25rem)
+  }
+  .menu__item {
+    padding-bottom: clamp(1rem ,-.3930738119rem + 2.2469385462vw ,1.25rem)
+  }
+  .action-header__logo {
+    padding-left: clamp(.875rem ,-1.2146107179rem + 3.3704078193vw ,1.25rem)
+  }
+  .action-header__logo {
+    padding-right: clamp(.875rem ,-1.2146107179rem + 3.3704078193vw ,1.25rem)
+  }
+  .action-header__phone {
+    font-size: clamp(1.75rem ,.3569261881rem + 2.2469385462vw ,2rem)
+  }
+  .action-header__phone {
+    padding-left: clamp(.875rem ,-1.2146107179rem + 3.3704078193vw ,1.25rem)
+  }
+  .action-header__phone {
+    padding-right: clamp(.875rem ,-1.2146107179rem + 3.3704078193vw ,1.25rem)
+  }
+  .footer {
+    padding-top: clamp(3.75rem ,-3.2153690597rem + 11.2346927312vw ,5rem)
+  }
+  .plumbing-experts__wrapper {
+    padding-left: clamp(3.75rem ,-10.1807381193rem + 22.4693854623vw ,6.25rem)
+  }
+  .repair-services__wrapper {
+    padding-right: clamp(3.75rem ,-10.1807381193rem + 22.4693854623vw ,6.25rem)
+  }
+  .company-benefits__wrapper {
+    padding-left: clamp(3.75rem ,-10.1807381193rem + 22.4693854623vw ,6.25rem)
+  }
+}
+@media (min-width:47.99875em)and (max-width:61.99875em) {
+  .header__information {
+    min-height: clamp(5.25rem ,1.8215178571rem + 7.1428571429vw ,6.25rem)
+  }
+  .header__logo {
+    font-size: clamp(2rem ,-.1428013393rem + 4.4642857143vw ,2.625rem)
+  }
+}
+@media (min-width:29.99875em)and (max-width:47.99875em) {
+  .action-header__logo svg {
+    flex-basis: clamp(1.625rem ,.3750520833rem + 4.1666666667vw ,2.375rem)
+  }
+  .action-header__logo svg {
+    width: clamp(1.625rem ,.3750520833rem + 4.1666666667vw ,2.375rem)
+  }
+  .action-header__phone {
+    font-size: clamp(1.25rem ,.4167013889rem + 2.7777777778vw ,1.75rem)
+  }
+}
+@media (max-width:61.99875em)and (min-width:47.99875em) {
+  .action-header__phone {
+    font-size: 1.75rem
+  }
+  .plumbing-experts__wrapper {
+    padding-left: 3.75rem
+  }
+  .repair-services__wrapper {
+    padding-left: 3.75rem
+  }
+  .company-benefits__wrapper {
+    padding-left: 3.75rem
+  }
+}
+@media (min-width:47.99875em)and (max-width:73.125em) {
+  .footer {
+    padding-bottom: clamp(6.25rem ,2.6681819312rem + 7.4623153077vw ,8.125rem)
+  }
+  .plumbing-repair {
+    padding-top: clamp(3.75rem ,.1681819312rem + 7.4623153077vw ,5.625rem)
+  }
+  .plumbing-repair {
+    padding-bottom: clamp(5rem ,.224242575rem + 9.9497537436vw ,7.5rem)
+  }
+  .plumbing-experts {
+    padding-top: clamp(3.75rem ,.1681819312rem + 7.4623153077vw ,5.625rem)
+  }
+  .plumbing-experts {
+    padding-bottom: clamp(1.875rem ,-1.7068180688rem + 7.4623153077vw ,3.75rem)
+  }
+  .repair-services {
+    padding-top: clamp(1.875rem ,-1.7068180688rem + 7.4623153077vw ,3.75rem)
+  }
+  .repair-services {
+    padding-bottom: clamp(1.875rem ,-1.7068180688rem + 7.4623153077vw ,3.75rem)
+  }
+  .company-benefits {
+    padding-top: clamp(1.875rem ,-1.7068180688rem + 7.4623153077vw ,3.75rem)
+  }
+  .company-benefits {
+    padding-bottom: clamp(1.875rem ,-1.7068180688rem + 7.4623153077vw ,3.75rem)
+  }
+  .rent-cabinet {
+    padding-top: clamp(1.875rem ,-1.7068180688rem + 7.4623153077vw ,3.75rem)
+  }
+  .rent-cabinet {
+    padding-bottom: clamp(1.875rem ,-1.7068180688rem + 7.4623153077vw ,3.75rem)
+  }
+}
 @media (min-width:20em)and (max-width:73.125em) {
+  .footer__copyright {
+    font-size: clamp(.875rem ,.7808823529rem + .4705882353vw ,1.125rem)
+  }
+  .rent-cabinet__title {
+    font-size: clamp(2rem ,1.8117647059rem + .9411764706vw ,2.5rem)
+  }
+  .rent-cabinet__title {
+    margin-bottom: clamp(1.25rem ,.5441176471rem + 3.5294117647vw ,3.125rem)
+  }
   .slider-card__button {
     font-size: clamp(.6875rem ,.6169117647rem + .3529411765vw ,.875rem)
   }
