@@ -3430,6 +3430,37 @@
         }));
     }));
     let addWindowScrollEvent = false;
+    function headerScroll() {
+        addWindowScrollEvent = true;
+        const header = document.querySelector("header.header");
+        const plumbingRepair = document.querySelector(".plumbing-repair");
+        const headerShow = header.hasAttribute("data-scroll-show");
+        const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
+        const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
+        let scrollDirection = 0;
+        let timer;
+        document.addEventListener("windowScroll", (function(e) {
+            const scrollTop = window.scrollY;
+            clearTimeout(timer);
+            if (scrollTop >= startPoint) {
+                if (!header.classList.contains("_header-scroll")) {
+                    header.classList.add("_header-scroll");
+                    if (plumbingRepair) plumbingRepair.classList.add("_header-scroll");
+                }
+                if (headerShow) {
+                    if (scrollTop > scrollDirection) header.classList.remove("_header-show"); else header.classList.add("_header-show");
+                    timer = setTimeout((() => {
+                        header.classList.add("_header-show");
+                    }), headerShowTimer);
+                }
+            } else {
+                header.classList.remove("_header-scroll");
+                if (plumbingRepair) plumbingRepair.classList.remove("_header-scroll");
+                if (headerShow) header.classList.remove("_header-show");
+            }
+            scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
+        }));
+    }
     setTimeout((() => {
         if (addWindowScrollEvent) {
             let windowScroll = new Event("windowScroll");
@@ -3617,4 +3648,5 @@
     }
     window["FLS"] = true;
     menuInit();
+    headerScroll();
 })();

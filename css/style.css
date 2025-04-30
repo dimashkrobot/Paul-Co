@@ -183,6 +183,18 @@ h6 {
   -o-object-fit: contain;
   object-fit: contain
 }
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: #fff;
+  transition: all .3s ease 0s
+}
+.header._header-scroll {
+  box-shadow: -3px 3px 25px -5px rgba(0,0,0,.2)
+}
 .header__information {
   display: flex;
   justify-content: space-between;
@@ -191,7 +203,8 @@ h6 {
   column-gap: 1.25rem;
   align-items: center;
   padding-top: .5rem;
-  padding-bottom: .5rem
+  padding-bottom: .5rem;
+  transition: min-height .4s ease
 }
 .header__logo {
   position: relative;
@@ -267,7 +280,8 @@ h6 {
   color: #617798
 }
 .plumbing-repair {
-  position: relative
+  position: relative;
+  transition: margin-top .4s ease
 }
 .plumbing-repair__container {
   display: flex
@@ -815,6 +829,9 @@ h6 {
     display: none
   }
   .header__information {
+    min-height: 6.875rem
+  }
+  ._header-scroll .header__information {
     min-height: 6.25rem
   }
   .header__logo {
@@ -822,7 +839,11 @@ h6 {
   }
   .header__menu {
     border-top: 1px solid #d4d3d5;
-    border-bottom: 1px solid #d4d3d5
+    border-bottom: 1px solid #d4d3d5;
+    transition: all .4s
+  }
+  ._header-scroll .header__menu {
+    border-bottom: 0
   }
   .plumbing-repair {
     background: linear-gradient(to right,#28348a 0,#28348a 50%,transparent 50%,transparent 100%)
@@ -864,6 +885,12 @@ h6 {
   }
   .footer__copyright {
     font-size: 1.125rem
+  }
+  .plumbing-repair {
+    margin-top: 10.5rem
+  }
+  .plumbing-repair._header-scroll {
+    margin-top: 9.875rem
   }
   .plumbing-repair {
     padding-top: 5.625rem
@@ -1188,9 +1215,6 @@ h6 {
   }
 }
 @media (max-width:47.99875em) {
-  .header__information {
-    min-height: 5.25rem
-  }
   .header__logo {
     font-size: 2rem
   }
@@ -1335,6 +1359,12 @@ h6 {
   .footer {
     padding-top: clamp(3.75rem ,-3.2153690597rem + 11.2346927312vw ,5rem)
   }
+  .plumbing-repair {
+    margin-top: clamp(10rem ,7.2138523761rem + 4.4938770925vw ,10.5rem)
+  }
+  .plumbing-repair._header-scroll {
+    margin-top: clamp(9.375rem ,6.5888523761rem + 4.4938770925vw ,9.875rem)
+  }
   .plumbing-experts__wrapper {
     padding-left: clamp(3.75rem ,-10.1807381193rem + 22.4693854623vw ,6.25rem)
   }
@@ -1351,6 +1381,9 @@ h6 {
   }
   .header__logo {
     font-size: clamp(2rem ,-.1428013393rem + 4.4642857143vw ,2.625rem)
+  }
+  .plumbing-repair {
+    margin-top: clamp(5.25rem ,1.8215178571rem + 7.1428571429vw ,6.25rem)
   }
 }
 @media (min-width:29.99875em)and (max-width:47.99875em) {
