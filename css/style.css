@@ -127,6 +127,74 @@ h6 {
   min-width: 0;
   grid-column: 3/4
 }
+.form__input {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: .9375rem;
+  background-color: #fff;
+  border-radius: .3125rem;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #617798;
+  box-shadow: -3px 3px 25px -5px rgba(0,0,0,.2);
+  border: none
+}
+.form__button {
+  color: #fff;
+  font-weight: 700;
+  font-family: "Sofia Pro";
+  line-height: 1.3;
+  letter-spacing: .0625rem;
+  text-transform: uppercase;
+  border-radius: .25rem;
+  text-decoration: none;
+  padding: .9375rem 1.5625rem;
+  transition: all .3s ease 0s;
+  background-color: #28348a
+}
+.form__items {
+  display: flex;
+  flex-wrap: wrap
+}
+.form__items:not(:last-child) {
+  margin-bottom: 1.25rem
+}
+.form__item {
+  padding: .625rem .9375rem;
+  flex: 0 0 auto;
+  width: 100%
+}
+.form__item--full {
+  width: 100%
+}
+.form__label {
+  color: #28348a;
+  font-weight: 700;
+  line-height: 1.3125;
+  margin-bottom: .9375rem;
+  letter-spacing: .0625rem;
+  text-transform: uppercase;
+  font-family: "Sofia Pro"
+}
+.form__textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: .9375rem;
+  background-color: #fff;
+  min-height: 6.25rem;
+  resize: vertical;
+  border-radius: .3125rem;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #617798;
+  border: none;
+  box-shadow: -3px 3px 25px -5px rgba(0,0,0,.2)
+}
+.form__actions {
+  padding: .9375rem
+}
 .menu__list {
   display: flex;
   flex-wrap: wrap;
@@ -779,6 +847,76 @@ h6 {
 .slider-nav--next {
   right: 10px
 }
+.service-booking {
+  background-color: #f5fbfe
+}
+.service-booking__title {
+  line-height: 1.28125;
+  color: #28348a;
+  font-family: "Sofia Pro";
+  font-weight: 700;
+  text-align: center
+}
+.faq__title {
+  line-height: 1.3;
+  color: #28348a;
+  font-family: "Sofia Pro";
+  font-weight: 700;
+  text-align: center
+}
+.spollers-faq {
+  max-width: 63.75rem;
+  margin: 0 auto
+}
+.spollers-faq__item {
+  border-bottom: .09375rem solid #adb2b1;
+  padding-bottom: 1.5625rem;
+  padding-top: 1.5625rem
+}
+.spollers-faq__title {
+  position: relative;
+  font-size: 1.125rem;
+  color: #28348a;
+  line-height: 1.4;
+  font-weight: 500;
+  padding-right: 2.5rem;
+  width: 100%;
+  list-style: none
+}
+.spollers-faq__title::after,
+.spollers-faq__title::before {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  background-color: #28348a;
+  height: .1875rem;
+  width: 1rem;
+  transition: -webkit-transform .5s ease 0s;
+  transition: transform .5s ease 0s;
+  transition: transform .5s ease 0s,-webkit-transform .5s ease 0s
+}
+._spoller-init .spollers-faq__title::before {
+  -webkit-transform: translate(0,-50%) rotate(90deg);
+  transform: translate(0,-50%) rotate(90deg)
+}
+.spollers-faq__title::after {
+  -webkit-transform: translate(0,-50%) rotate(0);
+  transform: translate(0,-50%) rotate(0)
+}
+.spollers-faq__title._spoller-active::before {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg)
+}
+.spollers-faq__body {
+  padding-top: 1.5625rem
+}
+.spollers-faq__body p {
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #617798
+}
 .swiper {
   overflow: hidden
 }
@@ -810,6 +948,9 @@ h6 {
   display: none!important
 }
 @media (min-width:47.99875em) {
+  .form__item {
+    width: 50%
+  }
   .action-header__logo {
     height: 4.125rem
   }
@@ -943,6 +1084,30 @@ h6 {
   .slider-card__button {
     padding: .5rem
   }
+  .service-booking {
+    padding-top: 3.75rem
+  }
+  .service-booking {
+    padding-bottom: 3.75rem
+  }
+  .service-booking__title {
+    font-size: 2.5rem
+  }
+  .service-booking__title {
+    margin-bottom: 3.125rem
+  }
+  .faq {
+    padding-top: 3.75rem
+  }
+  .faq {
+    padding-bottom: 3.75rem
+  }
+  .faq__title {
+    font-size: 1.75rem
+  }
+  .faq__title {
+    margin-bottom: 3.125rem
+  }
 }
 @media (max-width:35em) {
   .plumbing-experts__text ul {
@@ -976,8 +1141,32 @@ h6 {
   .slider-card__button {
     padding: .375rem
   }
+  .service-booking__title {
+    font-size: 2rem
+  }
+  .service-booking__title {
+    margin-bottom: 1.25rem
+  }
+  .faq__title {
+    font-size: 1.5625rem
+  }
+  .faq__title {
+    margin-bottom: 1.25rem
+  }
 }
 @media (max-width:61.99875em) {
+  .form__input {
+    font-size: 1rem
+  }
+  .form__button {
+    font-size: .875rem
+  }
+  .form__label {
+    font-size: .875rem
+  }
+  .form__textarea {
+    font-size: 1rem
+  }
   .menu__body {
     position: fixed;
     display: flex;
@@ -1215,6 +1404,17 @@ h6 {
   }
 }
 @media (max-width:47.99875em) {
+  .form__input {
+    box-shadow: 2px 3px 18px -2px rgba(0,0,0,.1);
+    padding: 1.125rem
+  }
+  .form__label {
+    margin-bottom: .625rem
+  }
+  .form__textarea {
+    box-shadow: 2px 3px 18px -2px rgba(0,0,0,.1);
+    padding: 1.125rem
+  }
   .header__logo {
     font-size: 2rem
   }
@@ -1304,6 +1504,18 @@ h6 {
   }
   .swiper {
     overflow: visible
+  }
+  .service-booking {
+    padding-top: 1.875rem
+  }
+  .service-booking {
+    padding-bottom: 1.875rem
+  }
+  .faq {
+    padding-top: 1.875rem
+  }
+  .faq {
+    padding-bottom: 1.875rem
   }
 }
 @media (max-width:29.99875em) {
@@ -1448,6 +1660,18 @@ h6 {
   .rent-cabinet {
     padding-bottom: clamp(1.875rem ,-1.7068180688rem + 7.4623153077vw ,3.75rem)
   }
+  .service-booking {
+    padding-top: clamp(1.875rem ,-1.7068180688rem + 7.4623153077vw ,3.75rem)
+  }
+  .service-booking {
+    padding-bottom: clamp(1.875rem ,-1.7068180688rem + 7.4623153077vw ,3.75rem)
+  }
+  .faq {
+    padding-top: clamp(1.875rem ,-1.7068180688rem + 7.4623153077vw ,3.75rem)
+  }
+  .faq {
+    padding-bottom: clamp(1.875rem ,-1.7068180688rem + 7.4623153077vw ,3.75rem)
+  }
 }
 @media (min-width:20em)and (max-width:73.125em) {
   .footer__copyright {
@@ -1465,8 +1689,26 @@ h6 {
   .slider-card__button {
     padding: clamp(.375rem ,.3279411765rem + .2352941176vw ,.5rem)
   }
+  .service-booking__title {
+    font-size: clamp(2rem ,1.8117647059rem + .9411764706vw ,2.5rem)
+  }
+  .service-booking__title {
+    margin-bottom: clamp(1.25rem ,.5441176471rem + 3.5294117647vw ,3.125rem)
+  }
+  .faq__title {
+    font-size: clamp(1.5625rem ,1.4919117647rem + .3529411765vw ,1.75rem)
+  }
+  .faq__title {
+    margin-bottom: clamp(1.25rem ,.5441176471rem + 3.5294117647vw ,3.125rem)
+  }
 }
 @media (any-hover:hover) {
+  .form__button:hover {
+    transition: .3s;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    box-shadow: none
+  }
   .menu__link:hover {
     color: #ed1b2f
   }
