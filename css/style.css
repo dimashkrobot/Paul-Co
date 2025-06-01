@@ -163,7 +163,7 @@ h6 {
 .form__item {
   padding: .625rem .9375rem;
   flex: 0 0 auto;
-  width: 100%
+  width: 50%
 }
 .form__item--full {
   width: 100%
@@ -948,9 +948,6 @@ h6 {
   display: none!important
 }
 @media (min-width:47.99875em) {
-  .form__item {
-    width: 50%
-  }
   .action-header__logo {
     height: 4.125rem
   }
@@ -1407,6 +1404,9 @@ h6 {
   .form__input {
     box-shadow: 2px 3px 18px -2px rgba(0,0,0,.1);
     padding: 1.125rem
+  }
+  .form__item {
+    width: 100%
   }
   .form__label {
     margin-bottom: .625rem
