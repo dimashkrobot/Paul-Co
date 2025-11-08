@@ -16,8 +16,31 @@
   font-family: Sofia Pro;
   font-display: swap;
   src: url("../fonts/Sofia Pro Bold Az.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal
+}
+@font-face {
+  font-family: icons;
+  font-display: swap;
+  src: url(../fonts/icons.woff2) format("woff2");
   font-weight: 400;
   font-style: normal
+}
+[class*=_icon-]::before {
+  font-family: icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+._icon-phone:before {
+  content: ""
+}
+._icon-whatsapp:before {
+  content: ""
 }
 * {
   padding: 0;
@@ -195,6 +218,45 @@ h6 {
 .form__actions {
   padding: .9375rem
 }
+input[type=email],
+input[type=tel],
+input[type=text],
+textarea {
+  -webkit-appearance: none;
+  appearance: none
+}
+.input {
+  width: 100%;
+  display: block;
+  caret-color: inherit
+}
+.input[placeholder]:not([data-placeholder-nohiden])::-webkit-input-placeholder {
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s
+}
+.input[placeholder]:not([data-placeholder-nohiden]):-ms-input-placeholder {
+  -ms-transition: opacity .3s;
+  transition: opacity .3s
+}
+.input[placeholder]:not([data-placeholder-nohiden])::-ms-input-placeholder {
+  -ms-transition: opacity .3s;
+  transition: opacity .3s
+}
+.input[placeholder]:not([data-placeholder-nohiden])::placeholder {
+  transition: opacity .3s
+}
+.input[placeholder]:not([data-placeholder-nohiden]):focus::-webkit-input-placeholder {
+  opacity: 0
+}
+.input[placeholder]:not([data-placeholder-nohiden]):focus:-ms-input-placeholder {
+  opacity: 0
+}
+.input[placeholder]:not([data-placeholder-nohiden]):focus::-ms-input-placeholder {
+  opacity: 0
+}
+.input[placeholder]:not([data-placeholder-nohiden]):focus::placeholder {
+  opacity: 0
+}
 .menu__list {
   display: flex;
   flex-wrap: wrap;
@@ -225,6 +287,165 @@ h6 {
 .icon-menu {
   display: none
 }
+body::after {
+  content: "";
+  background-color: rgba(0,0,0,.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity .8s ease 0s;
+  pointer-events: none;
+  z-index: 149
+}
+.popup-show body::after {
+  opacity: 1
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 30px 10px;
+  transition: visibility .8s ease 0s;
+  visibility: hidden;
+  pointer-events: none
+}
+.popup__top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #28348a
+}
+.popup__top:not(:last-child) {
+  margin-bottom: .9375rem
+}
+.popup__title {
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: .0625rem;
+  font-family: "Sofia Pro";
+  font-size: 1.875rem;
+  text-align: center
+}
+.popup__close {
+  width: 1.25rem;
+  height: 1.25rem;
+  position: absolute;
+  top: .875rem;
+  right: .875rem
+}
+.popup__close::after,
+.popup__close::before {
+  content: "";
+  background-color: #212529;
+  width: 100%;
+  height: .125rem;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  translate: 0 -50%;
+  rotate: -45deg;
+  border-radius: 50%
+}
+.popup__close::after {
+  rotate: 45deg
+}
+.popup__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: .625rem
+}
+.popup__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .625rem;
+  padding: 1rem;
+  border-radius: .25rem;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: .0625rem;
+  font-family: "Sofia Pro";
+  font-size: 1.375rem;
+  width: 100%;
+  text-align: center;
+  transition: all .4s ease-in-out;
+  color: #fff
+}
+.popup__btn::before {
+  font-size: 1.875rem
+}
+.popup__btn--call {
+  background-color: #ed1b2f;
+  box-shadow: 0 .3125rem .625rem rgba(237,27,48,.3)
+}
+.popup__btn--whatsapp {
+  margin-top: .25rem;
+  background-color: #25d366;
+  box-shadow: 0 .3125rem .625rem rgba(37,211,102,.3)
+}
+.popup__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1.875rem
+}
+.popup__icon img {
+  width: 100%
+}
+.popup__separation {
+  font-weight: 700;
+  letter-spacing: .0625rem;
+  font-family: "Sofia Pro";
+  font-size: 1.875rem;
+  text-align: center;
+  color: #28348a
+}
+.popup_show {
+  z-index: 150;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto
+}
+.popup_show .popup__content {
+  visibility: visible;
+  -webkit-transform: scale(1);
+  transform: scale(1)
+}
+.popup__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.popup__content {
+  visibility: hidden;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  transition: -webkit-transform .3s ease 0s;
+  transition: transform .3s ease 0s;
+  transition: transform .3s ease 0s,-webkit-transform .3s ease 0s;
+  background-color: #eee;
+  padding: 30px 50px;
+  width: 100%;
+  max-width: 21.875rem;
+  position: relative;
+  border-radius: .25rem
+}
+.lock .popup__content {
+  visibility: visible
+}
 .ibg {
   width: 100%;
   height: 100%;
@@ -251,6 +472,30 @@ h6 {
   -o-object-fit: contain;
   object-fit: contain
 }
+@-webkit-keyframes translate-bottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0,100%);
+    transform: translate(0,100%)
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0);
+    transform: translate(0)
+  }
+}
+@keyframes translate-bottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0,100%);
+    transform: translate(0,100%)
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0);
+    transform: translate(0)
+  }
+}
 .header {
   position: fixed;
   top: 0;
@@ -276,13 +521,10 @@ h6 {
 }
 .header__logo {
   position: relative;
-  z-index: 5;
-  font-family: "Hero New";
-  font-weight: 700;
-  color: #28348a
+  z-index: 5
 }
 .header__logo img {
-  max-width: 8.75rem
+  max-height: 5.625rem
 }
 .action-header {
   display: flex;
@@ -370,7 +612,8 @@ h6 {
   font-weight: 700;
   font-family: "Sofia Pro";
   padding-bottom: 1.25rem;
-  margin-bottom: 2.1875rem
+  margin-bottom: 2.1875rem;
+  opacity: 0
 }
 .plumbing-repair__title::after {
   content: "";
@@ -382,19 +625,27 @@ h6 {
   max-width: 6.25rem;
   border-bottom: 5px solid #ed1b2f
 }
+._watcher-view .plumbing-repair__title {
+  -webkit-animation: translate-bottom .5s .2s forwards;
+  animation: translate-bottom .5s .2s forwards
+}
 .plumbing-repair__text {
   font-size: 1.125rem;
   line-height: 1.5555555556;
   color: #fff;
-  font-family: "Hero New"
+  font-family: "Hero New";
+  opacity: 0
 }
 .plumbing-repair__text:not(:last-child) {
   margin-bottom: 2.1875rem
 }
+._watcher-view .plumbing-repair__text {
+  -webkit-animation: translate-bottom .5s .4s forwards;
+  animation: translate-bottom .5s .4s forwards
+}
 .plumbing-repair__image {
   background: url(../img/plumbing-repair/plumbing-repair.webp) center center/cover no-repeat;
   position: absolute;
-  z-index: 1;
   width: 50.5%;
   height: 100%;
   top: 0;
@@ -435,7 +686,8 @@ h6 {
   line-height: 1.28125;
   padding-bottom: 1.25rem;
   margin-bottom: 2.1875rem;
-  color: #28348a
+  color: #28348a;
+  opacity: 0
 }
 .plumbing-experts__title::after {
   content: "";
@@ -447,10 +699,15 @@ h6 {
   max-width: 6.25rem;
   border-bottom: 5px solid #ed1b2f
 }
+._watcher-view .plumbing-experts__title {
+  -webkit-animation: translate-bottom .5s .2s forwards;
+  animation: translate-bottom .5s .2s forwards
+}
 .plumbing-experts__text {
   font-family: "Hero New";
   color: #617798;
-  line-height: 1.7
+  line-height: 1.7;
+  opacity: 0
 }
 .plumbing-experts__text p:not(:last-child) {
   margin-bottom: 2.1875rem
@@ -478,6 +735,10 @@ h6 {
   display: block;
   width: .9375rem;
   height: .0625rem
+}
+._watcher-view .plumbing-experts__text {
+  -webkit-animation: translate-bottom .5s .4s forwards;
+  animation: translate-bottom .5s .4s forwards
 }
 .repair-services__container {
   display: flex;
@@ -513,7 +774,8 @@ h6 {
   line-height: 1.28125;
   padding-bottom: 1.25rem;
   margin-bottom: 2.1875rem;
-  color: #28348a
+  color: #28348a;
+  opacity: 0
 }
 .repair-services__title::after {
   content: "";
@@ -525,10 +787,15 @@ h6 {
   max-width: 100px;
   border-bottom: 5px solid #ed1b2f
 }
+._watcher-view .repair-services__title {
+  -webkit-animation: translate-bottom .5s .2s forwards;
+  animation: translate-bottom .5s .2s forwards
+}
 .repair-services__text {
   font-family: "Hero New";
   color: #617798;
-  line-height: 1.7
+  line-height: 1.7;
+  opacity: 0
 }
 .repair-services__text p:not(:last-child) {
   margin-bottom: 2.1875rem
@@ -556,6 +823,10 @@ h6 {
   display: block;
   width: .9375rem;
   height: .0625rem
+}
+._watcher-view .repair-services__text {
+  -webkit-animation: translate-bottom .5s .4s forwards;
+  animation: translate-bottom .5s .4s forwards
 }
 .company-benefits__container {
   display: flex;
@@ -591,7 +862,8 @@ h6 {
   line-height: 1.28125;
   padding-bottom: 1.25rem;
   margin-bottom: 2.1875rem;
-  color: #28348a
+  color: #28348a;
+  opacity: 0
 }
 .company-benefits__title::after {
   content: "";
@@ -603,13 +875,22 @@ h6 {
   max-width: 100px;
   border-bottom: 5px solid #ed1b2f
 }
+._watcher-view .company-benefits__title {
+  -webkit-animation: translate-bottom .5s .2s forwards;
+  animation: translate-bottom .5s .2s forwards
+}
 .company-benefits__text {
   font-family: "Hero New";
   color: #617798;
-  line-height: 1.7
+  line-height: 1.7;
+  opacity: 0
 }
 .company-benefits__text p {
   margin-bottom: 2.1875rem
+}
+._watcher-view .company-benefits__text {
+  -webkit-animation: translate-bottom .8s .3s forwards;
+  animation: translate-bottom .8s .3s forwards
 }
 .company-benefits__item {
   display: flex
@@ -633,7 +914,12 @@ h6 {
   color: #28348a;
   font-family: "Sofia Pro";
   font-weight: 700;
-  text-align: center
+  text-align: center;
+  opacity: 0
+}
+.rent-cabinet__title._watcher-view {
+  -webkit-animation: translate-bottom .5s .2s forwards;
+  animation: translate-bottom .5s .2s forwards
 }
 .rent-cabinet__slider {
   margin: -.9375rem -.625rem
@@ -646,7 +932,30 @@ h6 {
   padding-top: .9375rem;
   padding-bottom: .9375rem;
   padding-right: 10px;
-  padding-left: 10px
+  padding-left: 10px;
+  opacity: 0
+}
+._watcher-view .rent-cabinet__slide {
+  opacity: 1;
+  transition: all .8s ease .3s
+}
+._watcher-view .rent-cabinet__slide:nth-child(1) {
+  transition-delay: .3s
+}
+._watcher-view .rent-cabinet__slide:nth-child(2) {
+  transition-delay: .6s
+}
+._watcher-view .rent-cabinet__slide:nth-child(3) {
+  transition-delay: .9s
+}
+._watcher-view .rent-cabinet__slide:nth-child(4) {
+  transition-delay: 1.2s
+}
+._watcher-view .rent-cabinet__slide:nth-child(5) {
+  transition-delay: 1.5s
+}
+._watcher-view .rent-cabinet__slide:nth-child(6) {
+  transition-delay: 1.8s
 }
 .rent-cabinet__pagination {
   margin-top: 1.5rem;
@@ -855,14 +1164,31 @@ h6 {
   color: #28348a;
   font-family: "Sofia Pro";
   font-weight: 700;
-  text-align: center
+  text-align: center;
+  opacity: 0
+}
+.service-booking__title._watcher-view {
+  -webkit-animation: translate-bottom .5s .2s forwards;
+  animation: translate-bottom .5s .2s forwards
+}
+.service-booking__form {
+  opacity: 0
+}
+.service-booking__form._watcher-view {
+  opacity: 1;
+  transition: all .8s ease .3s
 }
 .faq__title {
   line-height: 1.3;
   color: #28348a;
   font-family: "Sofia Pro";
   font-weight: 700;
-  text-align: center
+  text-align: center;
+  opacity: 0
+}
+.faq__title._watcher-view {
+  -webkit-animation: translate-bottom .5s .2s forwards;
+  animation: translate-bottom .5s .2s forwards
 }
 .spollers-faq {
   max-width: 63.75rem;
@@ -871,7 +1197,30 @@ h6 {
 .spollers-faq__item {
   border-bottom: .09375rem solid #adb2b1;
   padding-bottom: 1.5625rem;
-  padding-top: 1.5625rem
+  padding-top: 1.5625rem;
+  opacity: 0
+}
+._watcher-view .spollers-faq__item {
+  opacity: 1;
+  transition: all .8s ease
+}
+._watcher-view .spollers-faq__item:nth-child(1) {
+  transition-delay: .3s
+}
+._watcher-view .spollers-faq__item:nth-child(2) {
+  transition-delay: .6s
+}
+._watcher-view .spollers-faq__item:nth-child(3) {
+  transition-delay: .9s
+}
+._watcher-view .spollers-faq__item:nth-child(4) {
+  transition-delay: 1.2s
+}
+._watcher-view .spollers-faq__item:nth-child(5) {
+  transition-delay: 1.5s
+}
+._watcher-view .spollers-faq__item:nth-child(6) {
+  transition-delay: 1.8s
 }
 .spollers-faq__title {
   position: relative;
@@ -972,8 +1321,8 @@ h6 {
   ._header-scroll .header__information {
     min-height: 6.25rem
   }
-  .header__logo {
-    font-size: 2.625rem
+  .header__logo img {
+    height: 5.625rem
   }
   .header__menu {
     border-top: 1px solid #d4d3d5;
@@ -1415,8 +1764,8 @@ h6 {
     box-shadow: 2px 3px 18px -2px rgba(0,0,0,.1);
     padding: 1.125rem
   }
-  .header__logo {
-    font-size: 2rem
+  .header__logo img {
+    height: 4.25rem
   }
   .action-header__logo span {
     display: none
@@ -1594,8 +1943,8 @@ h6 {
   .header__information {
     min-height: clamp(5.25rem ,1.8215178571rem + 7.1428571429vw ,6.25rem)
   }
-  .header__logo {
-    font-size: clamp(2rem ,-.1428013393rem + 4.4642857143vw ,2.625rem)
+  .header__logo img {
+    height: clamp(4.25rem ,-.4641629464rem + 9.8214285714vw ,5.625rem)
   }
   .plumbing-repair {
     margin-top: clamp(5.25rem ,1.8215178571rem + 7.1428571429vw ,6.25rem)
@@ -1711,6 +2060,23 @@ h6 {
   }
   .menu__link:hover {
     color: #ed1b2f
+  }
+  .popup__close {
+    transition: all .3s
+  }
+  .popup__close::after,
+  .popup__close::before {
+    background-color: #28348a
+  }
+  .popup__btn--call:hover {
+    background-color: #cf1022;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05)
+  }
+  .popup__btn--whatsapp:hover {
+    background-color: #1da851;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05)
   }
   .action-header__call:hover {
     -webkit-transform: scale(1.05);
